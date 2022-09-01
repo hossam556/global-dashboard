@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.css-1f2xuhi-MuiDrawer-docked .MuiDrawer-paper{
+    background: purple !important;
+    color: white !important;
+}
