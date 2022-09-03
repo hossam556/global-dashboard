@@ -1,13 +1,11 @@
-import React , {useEffect , useState} from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {modalHandler} from '../../store/reducers/global'
 import Table from '../../components/ui/Table'
 import CreateButton from '../../components/ui/CreateButton'
-import Modal from '../../components/ui/Modal'
-import TextField from '@mui/material/TextField';
-import MainButton from '../../components/ui/MainButton'
+import CreateProjectModal from '../../components/projects/CreateProjectModal'
 
-const Home = () => {
+const Projects = () => {
   const modalState = useSelector((state) => state.global.modal)
   const dispatch = useDispatch();
 
@@ -16,10 +14,15 @@ const Home = () => {
   }
     
   return (
-    <div className=''>
-      <p className='text-xl text-red-600'>Statistics</p>
+    <div>
+        <Table/>
+        <CreateButton clickHandler={openCreateModal}/>
+        {
+          modalState === 'homeCreateModal' && 
+          <CreateProjectModal/>
+        }
     </div>
   )
 }
 
-export default Home
+export default Projects

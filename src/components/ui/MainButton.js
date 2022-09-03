@@ -7,6 +7,7 @@ const MainButton = ({text , classes , type}) => {
 
     const clickHandler = ()=> {
         // dispatch(modalHandler(''));
+        console.log('hossaam')
     }
 
   return (

@@ -120,8 +120,8 @@ export default function PersistentDrawerLeft({children}) {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred'].map((text, index) => (
-            <ListItem key={text} disablePadding onClick={() => navigate('/nav')}>
+          {['Projects'].map((text, index) => (
+            <ListItem key={text} disablePadding onClick={() => navigate('/projects')}>
               <ListItemButton>
                 <ListItemIcon>
                   <InboxIcon />
