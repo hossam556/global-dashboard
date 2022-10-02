@@ -1,28 +1,33 @@
 import './App.css';
 import './assets/styles/global.css'
-import React from 'react'
+import React , {Suspense} from 'react'
 import Home from './pages/home/Index'
-import Projects from './pages/projects/Index'
 import HomeId from './pages/home/id/Index'
-import Nav from './pages/Nav'
 import {Routes ,Route} from "react-router-dom";
 import MainLayout from './layouts/MainLayout'
+import {routes} from './routes/index'
 
 
 function App() {
 
   return (
-    <div className="App">
-      <MainLayout>
+    <Suspense fallback='loading....'>
+      <div className="App">
         <Routes>
-          <Route path="/">
+          <Route path="/" element={<MainLayout/>}>
             <Route index element={<Home/>}/>
-            <Route path="/:id" element={<HomeId/>}/>
+            <Route path=":id" element={<HomeId/>}/>
+            {Object.values(routes).map((route , i) => 
+              <Route 
+                key={i}
+                path={`${route.path}`} 
+                element={<route.component/>}
+              />
+            )}
           </Route>
-          <Route path="/projects" element={<Projects />}/>
         </Routes>
-      </MainLayout>
-    </div>
+      </div>
+   </Suspense>
   );
 }
 

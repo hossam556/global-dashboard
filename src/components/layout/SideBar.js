@@ -17,8 +17,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { useNavigate } from 'react-router-dom';
+import {routes} from '../../routes/index'
 
 const drawerWidth = 240;
 
@@ -96,7 +96,7 @@ export default function PersistentDrawerLeft({children}) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div" >
-            Dashboard Project
+            Dashboard
           </Typography>
         </Toolbar>
       </AppBar>
@@ -120,13 +120,13 @@ export default function PersistentDrawerLeft({children}) {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Projects'].map((text, index) => (
-            <ListItem key={text} disablePadding onClick={() => navigate('/projects')}>
+          {Object.values(routes).map((item , index) => (
+            <ListItem key={index} disablePadding onClick={() => navigate(`${item.path}`)}>
               <ListItemButton>
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={item.name} />
               </ListItemButton>
             </ListItem>
           ))}

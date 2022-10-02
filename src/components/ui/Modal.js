@@ -20,7 +20,6 @@ export default function BasicModal({title , maxWidth , minWidth = 400 , children
 
   return (
     <div>
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
         open={true}
         // onClose={handleClose}

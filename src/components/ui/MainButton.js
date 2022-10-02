@@ -12,7 +12,7 @@ const MainButton = ({text , classes , type}) => {
 
   return (
     <button 
-        className={`rounded-md bg-purple-800 px-3 py-2 text-white ${classes}`} 
+        className={`rounded-md bg-purple-800 px-3 py-2 text-white hover:opacity-90 ${classes}`} 
         onClick={clickHandler}
         type={type}
     > {text}
